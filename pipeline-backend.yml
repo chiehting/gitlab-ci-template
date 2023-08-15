@@ -1,0 +1,18 @@
+variables:
+  HARBOR_SPECIFY_PROJECT: "backend"
+  DEV_DEPLOY: "true"
+
+workflow:
+  rules:
+    - if: $DockerfilePath && $CI_COMMIT_BRANCH == "develop"
+
+include:
+  - project: 'gitlab-integrate/continuous-integration'
+    ref: main
+    file: '/init.yml'
+  - project: 'gitlab-integrate/continuous-integration'
+    ref: main
+    file: '/build-docker.yml'
+  - project: 'gitlab-integrate/continuous-integration'
+    ref: main
+    file: '/notification.yml'

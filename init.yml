@@ -1,0 +1,9 @@
+variables:
+  GIT_FETCH_EXTRA_FLAGS: --tags --force
+  GIT_DEPTH: 10
+
+stages:
+  - prepare
+  - build
+  - deploy
+  - notification
