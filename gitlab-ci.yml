@@ -1,0 +1,9 @@
+variables:
+  DockerfilePath: build/Dockerfile
+
+include:
+  - project: 'gitlab-integrate/continuous-integration'
+    ref: main
+    file: '/pipeline-backend.yml'
+
+
